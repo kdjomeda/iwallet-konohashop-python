@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="{{url_for('processCheckout')}}" method="post">
+    <table>
+
+        {%
+             for row in rows:
+        %}
+        <tr>
+            <td width="130px"><input type="checkbox" name="orderItems" value="{{row[2] }}"/> {{row[1]}}</td>
+            <td width="130px"> {{row[3]}}</td>
+            <td width="130px"> {{row[5]}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="1"><input type="reset" value="Cancel"/></td>
+            <td colspan="2"><input type="submit" value="Checkout"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
